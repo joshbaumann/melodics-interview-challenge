@@ -18,3 +18,10 @@
 - When a playlist share is created, send an event to our analytic system
 - Share links are deep linked to the App, depending on what system the user is on (Mobile, Desktop)
 - Share links contain UTM values for tracking and attribution in our analytic system (Google Analytics)
+
+### Tech
+
+The focus will primarily be on the UI/UX for this exercise.
+
+- React App using the NextJS framework with built-in typescript, bundling, routing and easy hosting on Vercel
+- Component Library used is Chakra UI for the building primary component building blocks and theming
