@@ -8,11 +8,10 @@ const Layout: React.FC = ({ children }) => {
   return (
     <ChakraProvider theme={theme}>
       <Fonts />
-      <Container>
-        <Head>
-          <title>Rhythm Demo</title>
-        </Head>
-
+      <Head>
+        <title>Rhythm Demo</title>
+      </Head>
+      <Container maxW="container.xl">
         <main>
           {children}
         </main>
