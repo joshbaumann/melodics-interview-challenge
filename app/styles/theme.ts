@@ -4,6 +4,7 @@ import Tag from './theme.tag';
 import Table from './theme.table';
 import Menu from './theme.menu';
 import Tabs from './theme.tabs';
+import Drawer from './theme.drawer';
 
 const theme = extendTheme({
   initialColorMode: 'dark',
@@ -33,7 +34,8 @@ const theme = extendTheme({
     Tag,
     Table,
     Menu,
-    Tabs
+    Tabs,
+    Drawer,
   },
   styles: {
     global: {
