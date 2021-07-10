@@ -48,7 +48,7 @@ const SongRow: React.FC = () => {
       <Menu colorScheme="gray">
         <MenuButton><DotsVertical size={18} /></MenuButton>
         <MenuList>
-          <MenuItem>Add to Practice Playlist</MenuItem>
+          <MenuItem>Add to Playlist</MenuItem>
         </MenuList>
       </Menu>
     </Td>

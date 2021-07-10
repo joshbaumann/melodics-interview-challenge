@@ -3,6 +3,7 @@ import Button from './theme.button';
 import Tag from './theme.tag';
 import Table from './theme.table';
 import Menu from './theme.menu';
+import Tabs from './theme.tabs';
 
 const theme = extendTheme({
   initialColorMode: 'dark',
@@ -31,7 +32,8 @@ const theme = extendTheme({
     Button,
     Tag,
     Table,
-    Menu
+    Menu,
+    Tabs
   },
   styles: {
     global: {

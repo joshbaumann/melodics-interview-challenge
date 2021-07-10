@@ -11,7 +11,7 @@ const Layout: React.FC = ({ children }) => {
       <Head>
         <title>Rhythm Demo</title>
       </Head>
-      <Container maxW="container.xl">
+      <Container maxW="container.xl" py="16">
         <main>
           {children}
         </main>
