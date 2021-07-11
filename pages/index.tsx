@@ -11,10 +11,10 @@ function Home({ lessons }) {
         <TabList>
           <Tab>Guided</Tab>
           <Tab>Courses</Tab>
-          <Tab>Lessons</Tab>
+          <Tab data-cy="tab:lessons">Lessons</Tab>
           <Tab>Exercises</Tab>
           <Tab>Favourites</Tab>
-          <Tab>Playlist</Tab>
+          <Tab data-cy="tab:playlist">Playlist</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
@@ -23,7 +23,7 @@ function Home({ lessons }) {
           <TabPanel>
             <Heading>Courses Panel</Heading>
           </TabPanel>
-          <TabPanel>
+          <TabPanel data-cy="panel:lessons">
             <LessonPanel lessons={lessons} />
           </TabPanel>
           <TabPanel>
@@ -32,7 +32,7 @@ function Home({ lessons }) {
           <TabPanel>
             <Heading>Favourites Panel</Heading>
           </TabPanel>
-          <TabPanel>
+          <TabPanel data-cy="panel:playlist">
             <PlaylistPanel />
           </TabPanel>
         </TabPanels>

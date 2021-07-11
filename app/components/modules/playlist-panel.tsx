@@ -16,13 +16,11 @@ const PlaylistPanel: React.FC = () => {
   );
 
   return (
-    <>
-      <LessonTable>
-        {playlist?.lessons.map((lesson) => (
-          <LessonRow key={lesson.id} data={lesson} menuItems={ContextMenuItems(lesson)} />
-        ))}
-      </LessonTable>
-    </>
+    <LessonTable>
+      {playlist?.lessons.map((lesson) => (
+        <LessonRow key={lesson.id} data={lesson} menuItems={ContextMenuItems(lesson)} />
+      ))}
+    </LessonTable>
   );
 };
 

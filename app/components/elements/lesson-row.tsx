@@ -24,7 +24,7 @@ type Props = {
 const LessonRow: React.FC<Props> = ({ data, menuItems }) => {
   const { colors } = useTheme();
 
-  return <Tr>
+  return <Tr data-cy="lesson:row">
     <Td width={100}>
       <Link href="/session">
         <Button colorScheme="blue">Play Session</Button>
@@ -57,7 +57,7 @@ const LessonRow: React.FC<Props> = ({ data, menuItems }) => {
     { menuItems &&
       <Td width={0} padding={0} paddingRight={4}>
         <Menu colorScheme="gray" isLazy>
-          <MenuButton><DotsVertical size={18}/></MenuButton>
+          <MenuButton data-cy="lesson:menu-btn"><DotsVertical size={18}/></MenuButton>
           <MenuList>
             {menuItems}
           </MenuList>
