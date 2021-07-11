@@ -1,11 +1,11 @@
 import Layout from '../app/components/layouts/layout';
-import SongTable from '../app/components/elements/song-table';
+import LessonTable from '../app/components/elements/lesson-table';
 import { Heading, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 
-export default function Home() {
+function Home({ lessons }) {
   return (
     <Layout>
-      <Tabs variant="enclosed-colored" colorScheme="gray" defaultIndex={2}>
+      <Tabs variant="enclosed-colored" colorScheme="gray" defaultIndex={2} isLazy>
         <TabList>
           <Tab>Guided</Tab>
           <Tab>Courses</Tab>
@@ -22,7 +22,7 @@ export default function Home() {
             <Heading>Courses Panel</Heading>
           </TabPanel>
           <TabPanel>
-            <SongTable></SongTable>
+            <LessonTable lessons={lessons}></LessonTable>
           </TabPanel>
           <TabPanel>
             <Heading>Exercises Panel</Heading>
@@ -31,10 +31,23 @@ export default function Home() {
             <Heading>Favourites Panel</Heading>
           </TabPanel>
           <TabPanel>
-            <SongTable></SongTable>
+            <LessonTable lessons={[]}></LessonTable>
           </TabPanel>
         </TabPanels>
       </Tabs>
     </Layout>
   )
 }
+
+export async function getStaticProps() {
+  const res = await fetch(`${process.env.HOST}/api/lessons`);
+  const lessons = await res.json();
+
+  return {
+    props: {
+      lessons,
+    },
+  }
+}
+
+export default Home;

@@ -13,8 +13,13 @@ import {
   useTheme
 } from '@chakra-ui/react';
 import { DotsVertical, Star, VolumeUp } from 'heroicons-react';
+import { Lesson } from '../../types/lessons';
 
-const SongRow: React.FC = () => {
+type Props = {
+  data: Lesson;
+}
+
+const LessonRow: React.FC<Props> = ({ data }) => {
   const { colors } = useTheme();
 
   return <Tr>
@@ -27,16 +32,17 @@ const SongRow: React.FC = () => {
       </Button>
     </Td>
     <Td width={350}>
-      <Text fontSize="sm">Island Time</Text>
+      <Text fontSize="sm">{data.title}</Text>
     </Td>
     <Td width={200}>
       <HStack spacing="4">
-        <Tag>Rhythm</Tag>
-        <Tag>Rhythm</Tag>
+        {data.tags.map((tag) => (
+          <Tag>{tag}</Tag>
+        ))}
       </HStack>
     </Td>
-    <Td><Text fontSize="sm">Grade 1</Text></Td>
-    <Td><Text fontSize="sm">Rock</Text></Td>
+    <Td><Text fontSize="sm">Grade {data.grade}</Text></Td>
+    <Td><Text fontSize="sm">{data.genres.join(', ')}</Text></Td>
     <Td width={0}>
       <Flex>
         <Star color={colors.yellow['500']} />
@@ -55,4 +61,4 @@ const SongRow: React.FC = () => {
   </Tr>
 };
 
-export default SongRow;
+export default LessonRow;
