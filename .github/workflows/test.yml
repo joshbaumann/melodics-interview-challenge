@@ -1,0 +1,19 @@
+name: E2E Tests
+
+on: [push]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node14.16.0-chrome90-ff88
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        env:
+          NEXT_PUBLIC_HOST: ${{ secrets.NEXT_PUBLIC_HOST }}
+          SECRET_COOKIE_PASSWORD: ${{ secrets.SECRET_COOKIE_PASSWORD }}
+        with:
+          command: yarn cy:run

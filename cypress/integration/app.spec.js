@@ -28,7 +28,7 @@ describe('App E2E', () => {
     cy.get('[data-cy="panel:lessons"] [data-cy="lesson:row"]').eq(0).within(() => {
       cy.get('[data-cy="lesson:menu-btn"]').click();
       cy.contains('Add to Playlist').click();
-    });
+    })
 
     cy.get('[data-cy="tab:playlist"]').click();
     cy.get('[data-cy="panel:playlist"]').within(() => {

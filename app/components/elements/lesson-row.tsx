@@ -56,7 +56,7 @@ const LessonRow: React.FC<Props> = ({ data, menuItems }) => {
     </Td>
     { menuItems &&
       <Td width={0} padding={0} paddingRight={4}>
-        <Menu colorScheme="gray" isLazy>
+        <Menu colorScheme="gray">
           <MenuButton data-cy="lesson:menu-btn"><DotsVertical size={18}/></MenuButton>
           <MenuList>
             {menuItems}
