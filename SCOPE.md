@@ -3,7 +3,6 @@
 #### Customer ACs
 - A user can `add` and `remove` songs from the playlist
 - A user can `reorder` songs in the playlist
-- A user can `play` a song from the playlist
 - A user can quickly switch between the next and previous song in the playlist
 - The next song will start automatically playing when the current song is finished (if AUTO turned ON)
 - The user will be prompted to replay or play the next song when the current song is finished (if AUTO turned OFF)

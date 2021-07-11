@@ -1,11 +1,12 @@
 import React from 'react';
+import Link from 'next/link';
 import {
   Button,
   Flex,
   Menu,
   MenuButton,
-  MenuItem,
-  MenuList, HStack,
+  MenuList,
+  HStack,
   Tag,
   Td,
   Text,
@@ -17,14 +18,17 @@ import { Lesson } from '../../types/lessons';
 
 type Props = {
   data: Lesson;
+  menuItems?: React.ReactElement
 }
 
-const LessonRow: React.FC<Props> = ({ data }) => {
+const LessonRow: React.FC<Props> = ({ data, menuItems }) => {
   const { colors } = useTheme();
 
   return <Tr>
     <Td width={100}>
-      <Button colorScheme="blue">Play Session</Button>
+      <Link href="/session">
+        <Button colorScheme="blue">Play Session</Button>
+      </Link>
     </Td>
     <Td width={100}>
       <Button leftIcon={<VolumeUp size={20} />} colorScheme="blue" variant="link" size="xs">
@@ -37,7 +41,7 @@ const LessonRow: React.FC<Props> = ({ data }) => {
     <Td width={200}>
       <HStack spacing="4">
         {data.tags.map((tag) => (
-          <Tag>{tag}</Tag>
+          <Tag key={tag}>{tag}</Tag>
         ))}
       </HStack>
     </Td>
@@ -50,14 +54,16 @@ const LessonRow: React.FC<Props> = ({ data }) => {
         <Star color={colors.gray['400']} />
       </Flex>
     </Td>
-    <Td width={0} padding={0} paddingRight={4}>
-      <Menu colorScheme="gray">
-        <MenuButton><DotsVertical size={18} /></MenuButton>
-        <MenuList>
-          <MenuItem>Add to Playlist</MenuItem>
-        </MenuList>
-      </Menu>
-    </Td>
+    { menuItems &&
+      <Td width={0} padding={0} paddingRight={4}>
+        <Menu colorScheme="gray" isLazy>
+          <MenuButton><DotsVertical size={18}/></MenuButton>
+          <MenuList>
+            {menuItems}
+          </MenuList>
+        </Menu>
+      </Td>
+    }
   </Tr>
 };
 

@@ -11,9 +11,9 @@ import {
 } from '@chakra-ui/react';
 import Layout from '../app/components/layouts/layout';
 import styles from './session.module.css';
-import LessonTable from '../app/components/elements/lesson-table';
+import PlaylistPanel from '../app/components/modules/playlist-panel';
 
-export default function Session() {
+function Session() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -36,10 +36,12 @@ export default function Session() {
           <DrawerCloseButton />
           <DrawerHeader>Practice Playlist</DrawerHeader>
           <DrawerBody>
-            <LessonTable />
+            <PlaylistPanel />
           </DrawerBody>
         </DrawerContent>
       </Drawer>
     </Layout>
   )
 }
+
+export default Session;

@@ -7,10 +7,9 @@ export type NextIronHandler = (
   res: NextApiResponse,
 ) => void | Promise<void>;
 
-const withSession = (handler: NextIronHandler) =>
-  withIronSession(handler, {
-    password: process.env.SECRET_COOKIE_PASSWORD,
-    cookieName: 'next-iron-session',
-  });
+const withSession = (handler: NextIronHandler) => withIronSession(handler, {
+  password: process.env.SECRET_COOKIE_PASSWORD,
+  cookieName: 'next-iron-session',
+});
 
 export default withSession;

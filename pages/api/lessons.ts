@@ -1,4 +1,4 @@
-const MOCK_LESSON_DATA = [
+export const MOCK_LESSON_DATA = [
   {
     id: 1,
     title: 'Good Friday (Beginner)',

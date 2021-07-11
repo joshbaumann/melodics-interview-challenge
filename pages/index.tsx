@@ -1,11 +1,13 @@
 import Layout from '../app/components/layouts/layout';
-import LessonTable from '../app/components/elements/lesson-table';
 import { Heading, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
+import PlaylistPanel from '../app/components/modules/playlist-panel';
+import LessonPanel from '../app/components/modules/lesson-panel';
+import { fetcher } from '../app/api/fetcher';
 
 function Home({ lessons }) {
   return (
     <Layout>
-      <Tabs variant="enclosed-colored" colorScheme="gray" defaultIndex={2} isLazy>
+      <Tabs variant="enclosed-colored" colorScheme="gray" defaultIndex={2}>
         <TabList>
           <Tab>Guided</Tab>
           <Tab>Courses</Tab>
@@ -22,7 +24,7 @@ function Home({ lessons }) {
             <Heading>Courses Panel</Heading>
           </TabPanel>
           <TabPanel>
-            <LessonTable lessons={lessons}></LessonTable>
+            <LessonPanel lessons={lessons} />
           </TabPanel>
           <TabPanel>
             <Heading>Exercises Panel</Heading>
@@ -31,7 +33,7 @@ function Home({ lessons }) {
             <Heading>Favourites Panel</Heading>
           </TabPanel>
           <TabPanel>
-            <LessonTable lessons={[]}></LessonTable>
+            <PlaylistPanel />
           </TabPanel>
         </TabPanels>
       </Tabs>
@@ -40,12 +42,11 @@ function Home({ lessons }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${process.env.HOST}/api/lessons`);
-  const lessons = await res.json();
+  const lessons = await fetcher('/api/lessons');
 
   return {
     props: {
-      lessons,
+      lessons
     },
   }
 }
