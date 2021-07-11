@@ -1,6 +1,7 @@
 import withSession from '../../app/utils/session';
 import { MOCK_LESSON_DATA } from './lessons';
 
+// Only for demo purposes
 export default withSession(async (req, res) => {
   const playlist = req.session.get('playlist') || {};
   playlist.lessons = playlist.lessons || [];

@@ -41,6 +41,7 @@ export const MOCK_LESSON_DATA = [
   }
 ];
 
+// Only for demo purposes
 export default function handler(req, res) {
   res.status(200).json(MOCK_LESSON_DATA);
 }
